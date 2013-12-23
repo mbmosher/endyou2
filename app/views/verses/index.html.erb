@@ -1,0 +1,38 @@
+<h1>Everytime I End You</h1>
+
+<table class="table">
+  <tr>
+    <th>Jar</th>
+    <th>Map</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Verse</th>
+  </tr>
+ 
+  <% @verses.each do |verse| %>
+    <tr>
+      <td><img src="/assets/<%= verse.image %>" width=200></td>
+      <td><img src="/assets/<%= verse.map %>" width=200></td>
+      <td><%= link_to verse.latitude, 'https://maps.google.com/maps/ms?msid=201363619717282390147.0004e9c2d622f2d0a6d68&msa=0&ll=33.376699,-111.95034&spn=0.292719,0.31517' %></td>
+      <td><%= link_to verse.longitude, 'https://maps.google.com/maps/ms?msid=201363619717282390147.0004e9c2d622f2d0a6d68&msa=0&ll=33.376699,-111.95034&spn=0.292719,0.31517' %></td>
+      <td><%= verse.text %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+<% if @showUnlocked == true %>
+<br><br>
+
+ <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+
+<%= form_for :verse, method: :post do |f| %>
+  <div class="form group">
+    <strong>Enter Verse Unlock Code:</strong> <% f.label :code %> <%= f.text_field :code %> <%= f.submit "Unlock", class: 'btn' %>
+  </div>
+<% end %>
+
+<% end %>

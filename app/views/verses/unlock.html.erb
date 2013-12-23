@@ -1,0 +1,16 @@
+<h1>Enter Verse Unlock Code</h1>
+
+ <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+
+<%= form_for :verse, action: unlock_path, method: :post do |f| %>
+  <div class="form group">
+    <% f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+<br>
+  <div class="form group">
+    <%= f.submit "Unlock", class: 'btn' %> <%= link_to "Back", verses_path, class: 'btn' %>
+  </div>
+<% end %>

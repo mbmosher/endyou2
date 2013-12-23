@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image: MyString
+  map: MyString
+  latitude: 1.5
+  longitude: 1.5
+  text: MyText
+  code: MyString
+  unlocked: false
+
+two:
+  image: MyString
+  map: MyString
+  latitude: 1.5
+  longitude: 1.5
+  text: MyText
+  code: MyString
+  unlocked: false
