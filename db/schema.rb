@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131028000050) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "verses", force: true do |t|
     t.string   "image"
     t.string   "map"

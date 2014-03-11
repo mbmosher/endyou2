@@ -1,26 +1,25 @@
-<h1>Everytime I End You</h1>
+</br>
+<h1 class="text-center">Every Time I End You</h1>
 
 <table class="table">
   <tr>
     <th>Jar</th>
-    <th>Map</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
     <th>Verse</th>
+    <th>Map</th>
   </tr>
  
   <% @verses.each do |verse| %>
     <tr>
-      <td><img src="/assets/<%= verse.image %>" width=200></td>
-      <td><img src="/assets/<%= verse.map %>" width=200></td>
-      <td><%= link_to verse.latitude, 'https://maps.google.com/maps/ms?msid=201363619717282390147.0004e9c2d622f2d0a6d68&msa=0&ll=33.376699,-111.95034&spn=0.292719,0.31517' %></td>
-      <td><%= link_to verse.longitude, 'https://maps.google.com/maps/ms?msid=201363619717282390147.0004e9c2d622f2d0a6d68&msa=0&ll=33.376699,-111.95034&spn=0.292719,0.31517' %></td>
-      <td><%= verse.text %></td>
+      <td class="span3"><img src="/assets/<%= verse.image %>" width=200 class="img-circle"></td>
+      <td class="span6"><%=simple_format h verse.text %> </td>
+	  <td class="span3"><img src="/assets/<%= verse.map %>" width=200 class="img-circle"></td>
     </tr>
   <% end %>
 </table>
 
+<br><br>
 
+<iframe width="940" height="529" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/ms?hl=en&amp;msid=201363619717282390147.0004ef835a4722b3e2525&amp;msa=0&amp;ie=UTF8&amp;t=h&amp;ll=33.422344,-111.938324&amp;spn=0.0394,0.084028&amp;z=14&amp;output=embed"></iframe><br /><small>
 
 <% if @showUnlocked == true %>
 <br><br>
@@ -29,8 +28,8 @@
     <div class="alert alert-danger"><%= flash[:notice] %></div>
   <% end %>
 
-<%= form_for :verse, method: :post do |f| %>
-  <div class="form group">
+<%= form_for :verse, :url => { :action => "unlock" } do |f| %>
+  <div class="form-inline">
     <strong>Enter Verse Unlock Code:</strong> <% f.label :code %> <%= f.text_field :code %> <%= f.submit "Unlock", class: 'btn' %>
   </div>
 <% end %>

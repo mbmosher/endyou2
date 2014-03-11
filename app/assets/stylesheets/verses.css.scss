@@ -1,3 +1,16 @@
 // Place all the styles related to the verses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {background-image:url('darklinen.png');
+font-family: 'Satisfy', cursive;
+font-size: 1em;
+line-height: 150%;
+margin: 20px 0px;
+}
+
+.container {background-image:url('lightlinen.png');
+background-position: 50%;
+padding: 0px 10px;
+box-shadow: 0px 10px 20px 10px rgba(0,0,0,0.55);
+}
