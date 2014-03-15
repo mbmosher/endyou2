@@ -59,7 +59,7 @@ def checkcode
 end
 
 def verse_params
-	params.require(:verse).permit(:text, :code, :image, :map, :latitude, :longitude)
+	params.require(:verse).permit(:text, :code, :image, :map, :latitude, :longitude, :imagelink, :maplink)
 end
 
 =begin
