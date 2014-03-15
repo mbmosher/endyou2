@@ -1,0 +1,70 @@
+<h1>Edit Verse</h1>
+
+<%= form_for @verse do |f| %>
+  <% if @verse.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@verse.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @verse.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  
+  <div class="form group">
+  
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="form group">
+  
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+
+<div class="form group">
+
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+
+<div class="form group">
+
+    <%= f.label :imagelink %><br>
+    <%= f.text_field :imagelink %>
+  </div>
+
+<div class="form group">
+
+    <%= f.label :map %><br>
+    <%= f.text_field :map %>
+  </div>
+
+<div class="form group">
+
+    <%= f.label :maplink %><br>
+    <%= f.text_field :maplink %>
+  </div>
+
+<div class="form group">
+
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+
+<div class="form group">
+
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+ 
+  <div class="form group">
+    <%= f.submit "Update Verse", class: 'btn' %>
+  
+  </div>
+<% end %>
+
+<%= link_to "Back", verses_path, class: 'btn' %>

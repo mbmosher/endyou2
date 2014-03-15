@@ -25,10 +25,18 @@ def create
   @verse = Verse.new(verse_params)
   @verse.unlocked = false
   @verse.save
-
 	redirect_to verses_path
 end
+  
+def edit
+  @verse = Verse.find(params[:id])
+end
 
+def update
+  @verse = Verse.find(params[:id])
+  @verse.update(verse_params)
+  redirect_to verses_path
+end
 
 def unlock
 	testverse = Verse.new(params[:verse].permit(:code))
