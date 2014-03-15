@@ -1,6 +1,10 @@
 </br>
 <h1 class="text-center">Every Time I End You</h1>
 
+<% if flash[:notice] %>
+   <div class="alert alert-danger"><%= flash[:notice] %></div>
+ <% end %>
+
 <table class="table">
   <tr>
     <th class="text-center">Jar</th>
@@ -10,21 +14,16 @@
  
   <% @verses.each do |verse| %>
     <tr>
-      <td class="span3" align="center"><img src="/assets/<%= verse.image %>" class="img-circle"></td>
+      <th class="span3" align="center"><img src="/assets/<%= verse.image %>" width=144 class="img-circle"></td>
       <td class="span6"><%=simple_format h verse.text %> </td>
-	  <td class="span3"><img src="/assets/<%= verse.map %>" class="img-circle"></td>
+	  <th class="span3"><img src="/assets/<%= verse.map %>" width=144 class="img-circle" title="<%= verse.latitude %>, <%= verse.longitude %>"></td>
     </tr>
   <% end %>
 </table>
 
-<br><br>
+<br>
 
 <% if @showUnlocked == true %>
-<br><br>
-
- <% if flash[:notice] %>
-    <div class="alert alert-danger"><%= flash[:notice] %></div>
-  <% end %>
 
 <%= form_for :verse, :url => { :action => "unlock" } do |f| %>
   <div class="form-inline offset3">
