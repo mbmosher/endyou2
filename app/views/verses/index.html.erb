@@ -8,6 +8,7 @@
 <table class="table">
   <tr>
     <th class="text-center">Jar</th>
+	<th></th>
     <th>Verse</th>
     <th>Map</th>
   </tr>
@@ -15,6 +16,7 @@
   <% @verses.each do |verse| %>
     <tr>
       <th class="span3"><%= link_to(image_tag(verse.image), image_path(verse.imagelink))%></td>
+	  <td class="span1"></td>
       <td class="span6"><%=simple_format h verse.text %> </td>
 	  <th class="span3"><%= link_to(image_tag(verse.map), verse.maplink, :title => verse.latitude.to_s + ', ' + verse.longitude.to_s)%></td>
     </tr>
@@ -26,13 +28,13 @@
 <% if @showUnlocked == true %>
 
 <%= form_for :verse, :url => { :action => "unlock" } do |f| %>
-  <div class="form-inline offset3">
+  <div class="form-inline text-center">
     <strong>Enter Verse Unlock Code:</strong> <% f.label :code %> <%= f.text_field :code %> <%= f.submit "Unlock", class: 'btn' %>
   </div>
 <% end %>
 
 <% end %>
 
-<iframe width="940" height="529" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/ms?hl=en&amp;msid=201363619717282390147.0004ef835a4722b3e2525&amp;msa=0&amp;ie=UTF8&amp;t=h&amp;ll=33.422344,-111.938324&amp;spn=0.0394,0.084028&amp;z=14&amp;output=embed"></iframe><br />
+<iframe width="940" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/ms?hl=en&amp;msid=201363619717282390147.0004ef835a4722b3e2525&amp;msa=0&amp;ie=UTF8&amp;t=h&amp;ll=33.424242,-111.943045&amp;spn=0.017193,0.040298&amp;z=15&amp;output=embed"></iframe><br />
 
 <p class="text-center">© 2014 <a href="http://matthewmosher.us">Matthew Mosher</a></p>
